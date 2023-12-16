@@ -1,11 +1,15 @@
+import java.awt.Graphics;
 import java.awt.Image;
+
 
 public class GameObj {
     private Image img;
+    // positions
     private int x;
     private int y;
+    // size img
     private int width = 30;
-    private int height = 30;
+    private int height = 30; 
     private GameStart frame;
 
     // this is a costructor of class GameObj with parameters 
@@ -18,6 +22,10 @@ public class GameObj {
         this.height = height;
         this.frame = frame;
         
+    }
+    
+    public void paintSelf(Graphics g) {
+        g.drawImage(img, x, y, width, height, null);
     }
     
     // this is a costructor of class GameObj without parameters 
