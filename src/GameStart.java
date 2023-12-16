@@ -2,7 +2,7 @@ import javax.swing.JFrame;
 
 public class GameStart extends JFrame {
 
-    public void launch() {
+    public void Start() {
 
         this.setSize(600, 600); // seleziono dimensione finestra
         this.setLocationRelativeTo(null); // posizione della finestra sullo schermo
@@ -14,7 +14,7 @@ public class GameStart extends JFrame {
 
     public static void main(String[] args) {
         GameStart startgame = new GameStart();
-        startgame.launch();
+        startgame.Start();
 
     }
 
