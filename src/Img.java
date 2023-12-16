@@ -1,6 +1,7 @@
 import java.awt.*;
 
 public class Img {
+
     public static Image head_down = Toolkit.getDefaultToolkit()
         .getImage("src\\img\\head_down.png");
     public static Image head_up = Toolkit.getDefaultToolkit()
@@ -13,4 +14,5 @@ public class Img {
         .getImage("src\\img\\body.png");
     public static Image food = Toolkit.getDefaultToolkit()
         .getImage("src\\img\\food.png");
+        
 }

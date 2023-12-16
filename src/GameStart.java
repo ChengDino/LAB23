@@ -13,9 +13,10 @@ public class GameStart extends JFrame {
     }
 
     public static void main(String[] args) {
+
         GameStart startgame = new GameStart();
         startgame.Start();
-
+        
     }
 
 }
