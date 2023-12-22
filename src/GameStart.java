@@ -5,6 +5,7 @@ import java.awt.Graphics;
 public class GameStart extends JFrame {
 
     HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
+    FoodObj foodObj = new FoodObj(Img.food, 60,60, this);
 
     public void Start() {
 
@@ -29,6 +30,9 @@ public class GameStart extends JFrame {
         }
         // draw Head
         headObj.paintSelf(g);
+
+        // draw Food
+        foodObj.paintSelf(g);
     }
 
     public static void main(String[] args) {
