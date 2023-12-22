@@ -4,8 +4,9 @@ import java.awt.Graphics;
 
 public class GameStart extends JFrame {
 
+    //creation object
     HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
-    FoodObj foodObj = new FoodObj(Img.food, 60,60, this);
+    FoodObj foodObj = new FoodObj().getFood();
 
     public void Start() {
 
