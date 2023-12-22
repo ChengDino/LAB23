@@ -4,6 +4,8 @@ import java.awt.Graphics;
 
 public class GameStart extends JFrame {
 
+    HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
+
     public void Start() {
 
         this.setSize(600, 600); // I select window size
@@ -25,7 +27,8 @@ public class GameStart extends JFrame {
             g.drawLine(0, i * 30, 600, i * 30);
             g.drawLine(i * 30, 0, i * 30, 600);
         }
-
+        // draw Head
+        headObj.paintSelf(g);
     }
 
     public static void main(String[] args) {
