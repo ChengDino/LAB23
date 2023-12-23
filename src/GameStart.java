@@ -21,7 +21,7 @@ public class GameStart extends JFrame {
 
         while (true) {
             // int n = headObj.getX();
-            headObj.setX(120);
+            headObj.setX(headObj.getX() + 30);
             repaint();
             try {
                 Thread.sleep(1000);
