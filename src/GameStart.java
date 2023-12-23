@@ -20,8 +20,8 @@ public class GameStart extends JFrame {
         this.setVisible(true);
 
         while (true) {
-            int n = headObj.getX();
-            headObj.setX(n + 30);
+            // int n = headObj.getX();
+            headObj.setX(120);
             repaint();
             try {
                 Thread.sleep(1000);
@@ -36,6 +36,7 @@ public class GameStart extends JFrame {
     // I rewrite the graphics method
     @Override
     public void paint(Graphics g) {
+
         if (offScreenImg == null) {
             offScreenImg = this.createImage(600, 600);
         }
