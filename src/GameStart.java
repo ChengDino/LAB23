@@ -16,6 +16,19 @@ public class GameStart extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
+        while (true)
+        {
+            
+            
+            repaint();
+            try {
+                Thread.sleep(1000);
+            }  catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+          
+        }
+        
     }
 
     // I rewrite the graphics method

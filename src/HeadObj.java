@@ -9,6 +9,7 @@ public class HeadObj extends GameObj {
     public void paintSelf(Graphics g) {
 
         super.paintSelf(g);
+        
     }
 
     public HeadObj(Image img, int x, int y, GameStart frame) {
