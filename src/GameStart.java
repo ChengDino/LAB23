@@ -1,10 +1,13 @@
 import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 
 public class GameStart extends JFrame {
 
-    //creation object
+    Image offScreenImg = null;
+
+    // creation object
     HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
 
@@ -16,37 +19,41 @@ public class GameStart extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        while (true)
-        {
-            
-            
+        while (true) {
+            int n = headObj.getX();
+            headObj.setX(n + 30);
             repaint();
             try {
                 Thread.sleep(1000);
-            }  catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-          
+
         }
-        
+
     }
 
     // I rewrite the graphics method
     @Override
     public void paint(Graphics g) {
+        if (offScreenImg == null) {
+            offScreenImg = this.createImage(600, 600);
+        }
+        Graphics gImg = offScreenImg.getGraphics();
 
-        g.setColor(Color.GRAY);
-        g.fillRect(0, 0, 600, 600); // fill the window (background)
-        g.setColor(Color.BLACK);
+        gImg.setColor(Color.GRAY);
+        gImg.fillRect(0, 0, 600, 600); // fill the window (background)
+        gImg.setColor(Color.BLACK);
         for (int i = 0; i <= 20; i++) {
-            g.drawLine(0, i * 30, 600, i * 30);
-            g.drawLine(i * 30, 0, i * 30, 600);
+            gImg.drawLine(0, i * 30, 600, i * 30);
+            gImg.drawLine(i * 30, 0, i * 30, 600);
         }
         // draw Head
-        headObj.paintSelf(g);
+        headObj.paintSelf(gImg);
 
         // draw Food
-        foodObj.paintSelf(g);
+        foodObj.paintSelf(gImg);
+        g.drawImage(offScreenImg, 0, 0, null);
     }
 
     public static void main(String[] args) {
