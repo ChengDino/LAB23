@@ -20,11 +20,9 @@ public class GameStart extends JFrame {
         this.setVisible(true);
 
         while (true) {
-            // int n = headObj.getX();
-            headObj.setX(headObj.getX() + 30);
             repaint();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(400);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
