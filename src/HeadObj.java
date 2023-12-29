@@ -30,6 +30,28 @@ public class HeadObj extends GameObj {
     @Override
     public void paintSelf(Graphics g) {
 
+        if (getX() >= 600) {
+            
+            setX(0);
+
+        }
+        else if (getX() <= -1) {
+
+            setX(600-30);
+            
+        }
+
+        if (getY() == 600) {
+            
+            setY(30);
+
+        }
+        else if (getY() == 0) {
+
+            setY(600-30);
+
+        }
+
         super.paintSelf(g);
         move();
 
