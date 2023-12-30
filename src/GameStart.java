@@ -2,6 +2,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameStart extends JFrame {
 
@@ -10,6 +12,8 @@ public class GameStart extends JFrame {
     // creation object
     HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
+    // creation body
+    public List<BodyObj> bodyList = new ArrayList<>();
 
     public void Start() {
 
@@ -18,6 +22,9 @@ public class GameStart extends JFrame {
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+
+        bodyList.add(new BodyObj(Img.body, 30, 570, this));
+        bodyList.add(new BodyObj(Img.body, 0, 570, this));
 
         while (true) {
             repaint();
@@ -52,7 +59,13 @@ public class GameStart extends JFrame {
 
         // draw Food
         foodObj.paintSelf(gImg);
+
+        for (int i = bodyList.size() - 1; i <= 0; i--) {
+            bodyList.get(i).paintSelf(gImg);
+        }
+
         g.drawImage(offScreenImg, 0, 0, null);
+
     }
 
     public static void main(String[] args) {
