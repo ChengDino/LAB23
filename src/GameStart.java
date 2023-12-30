@@ -10,7 +10,7 @@ public class GameStart extends JFrame {
     Image offScreenImg = null;
 
     // creation object
-    HeadObj headObj = new HeadObj(Img.head_right, 30, 540, this);
+    HeadObj headObj = new HeadObj(Img.head_right, 90, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
     // creation body
     public List<BodyObj> bodyList = new ArrayList<>();
@@ -23,8 +23,8 @@ public class GameStart extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        bodyList.add(new BodyObj(Img.body, 30, 570, this));
-        bodyList.add(new BodyObj(Img.body, 0, 570, this));
+        bodyList.add(new BodyObj(Img.body, 60, 540, this));
+        bodyList.add(new BodyObj(Img.body, 30, 540, this));
 
         while (true) {
             repaint();
@@ -60,7 +60,7 @@ public class GameStart extends JFrame {
         // draw Food
         foodObj.paintSelf(gImg);
 
-        for (int i = bodyList.size() - 1; i <= 0; i--) {
+        for (int i = bodyList.size() - 1; i >= 0; i--) {
             bodyList.get(i).paintSelf(gImg);
         }
 
