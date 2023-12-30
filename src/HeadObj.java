@@ -8,6 +8,21 @@ public class HeadObj extends GameObj {
     private String direction = "right";
 
     public void move() {
+
+        java.util.List<BodyObj> bodyList = this.getFrame().bodyList;
+
+        for (int i = 1; i < bodyList.size(); i++) {
+            bodyList.get(i).setX(bodyList.get(i - 1).getX()); 
+            bodyList.get(i).setY(bodyList.get(i - 1).getY());
+            }
+            if ("left".equals(direction)) {
+                bodyList.get(0).setX(this.getX()-30);
+                bodyList.get(0).setY(this.getY());
+              } else {
+                bodyList.get(0).setX(this.getX());
+                bodyList.get(0).setY(this.getY());
+              }
+            
         switch (direction) {
             case "up":
                 setY(getY() - 30);
