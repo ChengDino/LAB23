@@ -9,15 +9,15 @@ public class HeadObj extends GameObj {
 
     public void move() {
 
-        java.util.List<BodyObj> bodyList = this.getFrame().bodyList;
+        java.util.List<BodyObj> bodyList = getFrame().bodyList;
 
         for (int i = 1; i < bodyList.size(); i++) {
             bodyList.get(i).setX(bodyList.get(i - 1).getX()); 
             bodyList.get(i).setY(bodyList.get(i - 1).getY());
             }
             
-                bodyList.get(0).setX(this.getX());
-                bodyList.get(0).setY(this.getY());
+            bodyList.get(0).setX(getX());
+            bodyList.get(0).setY(getY());
             
         switch (direction) {
             case "up":
