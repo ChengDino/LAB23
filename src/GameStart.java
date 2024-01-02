@@ -54,15 +54,16 @@ public class GameStart extends JFrame {
             gImg.drawLine(0, i * 30, 600, i * 30);
             gImg.drawLine(i * 30, 0, i * 30, 600);
         }
+
+        for (int i = bodyList.size() - 1; i >= 0; i--) {
+            bodyList.get(i).paintSelf(gImg);
+        }
+
         // draw Head
         headObj.paintSelf(gImg);
 
         // draw Food
         foodObj.paintSelf(gImg);
-
-        for (int i = bodyList.size() - 1; i >= 0; i--) {
-            bodyList.get(i).paintSelf(gImg);
-        }
 
         g.drawImage(offScreenImg, 0, 0, null);
 
