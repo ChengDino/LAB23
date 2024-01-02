@@ -63,6 +63,12 @@ public class HeadObj extends GameObj {
 
         }
 
+        FoodObj food = getFrame().foodObj;
+        if (food.getX() == getX() && food.getY() == getY()) {
+            setFrame(food.getFood().getFrame());
+        }
+        
+
         super.paintSelf(g);
         move();
 
