@@ -54,7 +54,7 @@ public class GameStart extends JFrame {
             gImg.drawLine(0, i * 30, 600, i * 30);
             gImg.drawLine(i * 30, 0, i * 30, 600);
         }
-
+        // draw Body
         for (int i = bodyList.size() - 1; i >= 0; i--) {
             bodyList.get(i).paintSelf(gImg);
         }
