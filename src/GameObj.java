@@ -10,6 +10,7 @@ public class GameObj {
     private int width = 30;
     private int height = 30;
     GameStart frame;
+    private int score = 0;
 
     // this is a costructor of class GameObj with parameters
     public GameObj(Image img, int x, int y, int width, int height, GameStart frame) {
@@ -32,11 +33,20 @@ public class GameObj {
 
     public void paintSelf(Graphics g) {
         g.drawImage(img, x, y, width, height, null);
+
     }
 
     // this is a costructor of class GameObj without parameters
     public GameObj() {
 
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public Image getImg() {

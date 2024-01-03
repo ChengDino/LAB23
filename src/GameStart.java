@@ -17,7 +17,7 @@ public class GameStart extends JFrame {
 
     public void Start() {
 
-        this.setSize(600, 600); // I select window size
+        this.setSize(800, 600); // I select window size
         this.setLocationRelativeTo(null); // position of the window on the screen
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,12 +43,12 @@ public class GameStart extends JFrame {
     public void paint(Graphics g) {
 
         if (offScreenImg == null) {
-            offScreenImg = this.createImage(600, 600);
+            offScreenImg = this.createImage(800, 600);
         }
         Graphics gImg = offScreenImg.getGraphics();
 
         gImg.setColor(Color.GRAY);
-        gImg.fillRect(0, 0, 600, 600); // fill the window (background)
+        gImg.fillRect(0, 0, 800, 600); // fill the window (background)
         gImg.setColor(Color.BLACK);
         for (int i = 0; i <= 20; i++) {
             gImg.drawLine(0, i * 30, 600, i * 30);
@@ -64,6 +64,9 @@ public class GameStart extends JFrame {
 
         // draw Food
         foodObj.paintSelf(gImg);
+
+        // draw Score
+        Img.WriteScore(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
 
         g.drawImage(offScreenImg, 0, 0, null);
 

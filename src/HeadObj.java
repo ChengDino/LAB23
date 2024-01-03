@@ -51,7 +51,7 @@ public class HeadObj extends GameObj {
             this.frame.foodObj = food.getFood();
             newX = lastBody.getX();
             newY = lastBody.getY();
-
+            setScore(getScore() + 1);
         }
         move();
 
