@@ -11,7 +11,7 @@ public class HeadObj extends GameObj {
 
         java.util.List<BodyObj> bodyList = this.frame.bodyList;
 
-        for (int i = 1; i < bodyList.size(); i++) {
+        for (int i = bodyList.size()-1; i >= 1; i--) {
             bodyList.get(i).setX(bodyList.get(i - 1).getX());
             bodyList.get(i).setY(bodyList.get(i - 1).getY());
         }
@@ -41,11 +41,24 @@ public class HeadObj extends GameObj {
     @Override
     public void paintSelf(Graphics g) {
         super.paintSelf(g);
+
+        int newX = -90;
+        int newY = -90;
+        BodyObj lastBody = this.frame.bodyList.get(this.frame.bodyList.size()-1);
+
         FoodObj food = this.frame.foodObj;
         if (food.getX() == getX() && food.getY() == getY()) {
             this.frame.foodObj = food.getFood();
+            newX = lastBody.getX();
+            newY = lastBody.getY();
+
         }
         move();
+
+        if (newX == -90 && newY == -90) {
+            this.frame.bodyList.add(new BodyObj(Img.body,newX,newY,this.frame));
+        }
+
 
         if (getX() >= 600) {
 
