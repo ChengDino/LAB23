@@ -51,10 +51,10 @@ public class HeadObj extends GameObj {
             this.frame.foodObj = food.getFood();
             newX = lastBody.getX();
             newY = lastBody.getY();
-            setScore(getScore() + 1);
+            setScore(getScore() + 1); // Increase point score
         }
         move();
-
+        // increase body one unit
         if (newX != -90 && newY != -90) {
             this.frame.bodyList.add(new BodyObj(Img.body, newX, newY, this.frame));
         }

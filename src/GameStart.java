@@ -66,7 +66,7 @@ public class GameStart extends JFrame {
         foodObj.paintSelf(gImg);
 
         // draw Score
-        Img.WriteScore(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
+        Img.WriteText(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
 
         g.drawImage(offScreenImg, 0, 0, null);
 
