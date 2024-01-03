@@ -9,16 +9,16 @@ public class HeadObj extends GameObj {
 
     public void move() {
 
-        java.util.List<BodyObj> bodyList = getFrame().bodyList;
+        java.util.List<BodyObj> bodyList = this.frame.bodyList;
 
         for (int i = 1; i < bodyList.size(); i++) {
-            bodyList.get(i).setX(bodyList.get(i - 1).getX()); 
+            bodyList.get(i).setX(bodyList.get(i - 1).getX());
             bodyList.get(i).setY(bodyList.get(i - 1).getY());
-            }
-            
-            bodyList.get(0).setX(getX());
-            bodyList.get(0).setY(getY());
-            
+        }
+
+        bodyList.get(0).setX(getX());
+        bodyList.get(0).setY(getY());
+
         switch (direction) {
             case "up":
                 setY(getY() - 30);
@@ -40,43 +40,38 @@ public class HeadObj extends GameObj {
 
     @Override
     public void paintSelf(Graphics g) {
+        super.paintSelf(g);
+        FoodObj food = this.frame.foodObj;
+        if (food.getX() == getX() && food.getY() == getY()) {
+            this.frame.foodObj = food.getFood();
+        }
+        move();
 
         if (getX() >= 600) {
-            
+
             setX(0);
 
-        }
-        else if (getX() <= -1) {
+        } else if (getX() <= -1) {
 
-            setX(600-30);
-            
+            setX(600 - 30);
+
         }
 
         if (getY() == 600) {
-            
+
             setY(30);
 
+        } else if (getY() == 0) {
+
+            setY(600 - 30);
+
         }
-        else if (getY() == 0) {
-
-            setY(600-30);
-
-        }
-
-        FoodObj food = getFrame().foodObj;
-        if (food.getX() == getX() && food.getY() == getY()) {
-            setFrame(food.getFood().getFrame());
-        }
-        
-
-        super.paintSelf(g);
-        move();
 
     }
 
     public HeadObj(Image img, int x, int y, GameStart frame) {
         super(img, x, y, frame);
-        this.getFrame().addKeyListener(new KeyAdapter() {
+        this.frame.addKeyListener(new KeyAdapter() {
 
             @Override
             public void keyPressed(KeyEvent e) {

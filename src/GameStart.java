@@ -29,7 +29,7 @@ public class GameStart extends JFrame {
         while (true) {
             repaint();
             try {
-                Thread.sleep(400);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -9,7 +9,7 @@ public class GameObj {
     // size img
     private int width = 30;
     private int height = 30;
-    private GameStart frame;
+    GameStart frame;
 
     // this is a costructor of class GameObj with parameters
     public GameObj(Image img, int x, int y, int width, int height, GameStart frame) {
@@ -79,12 +79,13 @@ public class GameObj {
         this.height = height;
     }
 
-    public GameStart getFrame() {
-        return frame;
-    }
-
-    public void setFrame(GameStart frame) {
-        this.frame = frame;
-    }
-
+    /*
+     * public GameStart getFrame() {
+     * return frame;
+     * }
+     * 
+     * public void setFrame(GameStart frame) {
+     * this.frame = frame;
+     * }
+     */
 }
