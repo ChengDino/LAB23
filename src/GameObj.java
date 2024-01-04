@@ -11,6 +11,7 @@ public class GameObj {
     private int height = 30;
     GameStart frame;
     private int score = 0;
+    private int state = 0;
 
     // this is a costructor of class GameObj with parameters
     public GameObj(Image img, int x, int y, int width, int height, GameStart frame) {
@@ -39,6 +40,14 @@ public class GameObj {
     // this is a costructor of class GameObj without parameters
     public GameObj() {
 
+    }
+
+    public int getState() {
+        return this.state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 
     public int getScore() {

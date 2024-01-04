@@ -12,6 +12,7 @@ public class GameStart extends JFrame {
     // creation object
     HeadObj headObj = new HeadObj(Img.head_right, 90, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
+    GameObj gameObj = new GameObj();
     // creation body
     public List<BodyObj> bodyList = new ArrayList<>();
 
@@ -27,7 +28,11 @@ public class GameStart extends JFrame {
         bodyList.add(new BodyObj(Img.body, 30, 540, this));
 
         while (true) {
-            repaint();
+            // State game 0.not started 1.started 2.pause 3.gameover
+            if (gameObj.getState() == 1) {
+                repaint();
+            }
+
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
@@ -67,6 +72,13 @@ public class GameStart extends JFrame {
 
         // draw Score
         Img.WriteText(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
+        Img.WriteText(gImg, "SCORE", Color.RED, 25, 650, 250);
+
+        if (gameObj.getState() == 0) {
+            gImg.setColor(Color.GRAY);
+            gImg.fillRect(120, 140, 400, 60);
+            Img.WriteText(gImg, "Press space to start the game ", Color.BLUE, 25, 150, 175);
+        }
 
         g.drawImage(offScreenImg, 0, 0, null);
 
