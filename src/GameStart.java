@@ -52,7 +52,6 @@ public class GameStart extends JFrame {
             if (headObj.getState() == 1) {
                 repaint();
             }
-
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
