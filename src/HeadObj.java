@@ -14,6 +14,10 @@ public class HeadObj extends GameObj {
         for (int i = bodyList.size() - 1; i >= 1; i--) {
             bodyList.get(i).setX(bodyList.get(i - 1).getX());
             bodyList.get(i).setY(bodyList.get(i - 1).getY());
+            if (getX() == bodyList.get(i).getX() && getY() == bodyList.get(i).getY()) {
+                setState(3);
+            }
+            
         }
 
         bodyList.get(0).setX(getX());
