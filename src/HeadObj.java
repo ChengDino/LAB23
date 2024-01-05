@@ -56,7 +56,7 @@ public class HeadObj extends GameObj {
         move();
         // increase body one unit
         if (newX != -90 && newY != -90) {
-            this.frame.bodyList.add(new BodyObj(Img.body, newX, newY, this.frame));
+            this.frame.bodyList.add(new BodyObj(Img.getBody(), newX, newY, this.frame));
         }
 
         if (getX() >= 600) {
@@ -98,7 +98,7 @@ public class HeadObj extends GameObj {
             case KeyEvent.VK_A:
                 if (!"right".equals(direction)) {
                     direction = "left";
-                    setImg(Img.head_left);
+                    setImg(Img.getHead_left());
                 }
 
                 break;
@@ -106,7 +106,7 @@ public class HeadObj extends GameObj {
             case KeyEvent.VK_W:
                 if (!"down".equals(direction)) {
                     direction = "up";
-                    setImg(Img.head_up);
+                    setImg(Img.getHead_up());
                 }
 
                 break;
@@ -114,7 +114,7 @@ public class HeadObj extends GameObj {
             case KeyEvent.VK_S:
                 if (!"up".equals(direction)) {
                     direction = "down";
-                    setImg(Img.head_down);
+                    setImg(Img.getHead_down());
                 }
 
                 break;
@@ -122,7 +122,7 @@ public class HeadObj extends GameObj {
             case KeyEvent.VK_D:
                 if (!"left".equals(direction)) {
                     direction = "right";
-                    setImg(Img.head_right);
+                    setImg(Img.getHead_right());
                 }
 
                 break;

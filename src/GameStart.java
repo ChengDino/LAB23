@@ -12,7 +12,7 @@ public class GameStart extends JFrame {
     Image offScreenImg = null;
 
     // creation object
-    HeadObj headObj = new HeadObj(Img.head_right, 90, 540, this);
+    HeadObj headObj = new HeadObj(Img.getHead_right(), 90, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
     // Menu menu = new Menu(this, 0);
     // creation body
@@ -26,8 +26,8 @@ public class GameStart extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        bodyList.add(new BodyObj(Img.body, 60, 540, this));
-        bodyList.add(new BodyObj(Img.body, 30, 540, this));
+        bodyList.add(new BodyObj(Img.getBody(), 60, 540, this));
+        bodyList.add(new BodyObj(Img.getBody(), 30, 540, this));
 
         this.addKeyListener(new KeyAdapter() {
             @Override

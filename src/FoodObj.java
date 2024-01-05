@@ -8,7 +8,7 @@ public class FoodObj extends GameObj {
 
     // position food
     public FoodObj getFood() {
-        return new FoodObj(Img.food, (r.nextInt(18) + 2) * 30, (r.nextInt(18) + 2) * 30, this.frame);
+        return new FoodObj(Img.getFood(), (r.nextInt(18) + 2) * 30, (r.nextInt(18) + 2) * 30, this.frame);
     }
 
     public FoodObj() {
