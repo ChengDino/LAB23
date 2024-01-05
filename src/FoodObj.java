@@ -6,7 +6,7 @@ public class FoodObj extends GameObj {
 
     Random r = new Random();
 
-    // position food
+    // (random) position food
     public FoodObj getFood() {
         return new FoodObj(Img.getFood(), (r.nextInt(18) + 2) * 30, (r.nextInt(18) + 2) * 30, this.frame);
     }
@@ -20,6 +20,7 @@ public class FoodObj extends GameObj {
         super.paintSelf(g);
     }
 
+    // costructor food
     public FoodObj(Image img, int x, int y, GameStart frame) {
         super(img, x, y, frame);
     }
