@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class GameStart extends JFrame {
 
@@ -12,7 +14,7 @@ public class GameStart extends JFrame {
     // creation object
     HeadObj headObj = new HeadObj(Img.head_right, 90, 540, this);
     FoodObj foodObj = new FoodObj().getFood();
-    Menu menu = new Menu();
+    // Menu menu = new Menu(this, 0);
     // creation body
     public List<BodyObj> bodyList = new ArrayList<>();
 
@@ -27,9 +29,27 @@ public class GameStart extends JFrame {
         bodyList.add(new BodyObj(Img.body, 60, 540, this));
         bodyList.add(new BodyObj(Img.body, 30, 540, this));
 
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    // 0.not started //2.pause //3.gameover
+                    if (headObj.getState() == 0 || headObj.getState() == 2 || headObj.getState() == 3) {
+                        headObj.setState(1);
+
+                    } else if (headObj.getState() == 1) {
+                        headObj.setState(2);
+                        repaint();
+                    } else if (headObj.getState() == 3) {
+                        repaint();
+                    }
+                }
+            }
+        });
+
         while (true) {
-            // State game 0.not started 1.started 2.pause 3.gameover
-            if (menu.getState() == 1) {
+
+            if (headObj.getState() == 1) {
                 repaint();
             }
 
@@ -74,13 +94,28 @@ public class GameStart extends JFrame {
         Img.WriteText(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
         Img.WriteText(gImg, "SCORE", Color.RED, 25, 650, 250);
 
-        if (menu.getState() == 0) {
-            gImg.setColor(Color.GRAY);
-            gImg.fillRect(120, 140, 400, 60);
+        if (headObj.getState() == 0) {
+            message(gImg);
             Img.WriteText(gImg, "Press space to start the game ", Color.BLUE, 25, 150, 175);
+        }
+        if (headObj.getState() == 2) {
+            message(gImg);
+            Img.WriteText(gImg, "Press space to continue the game ", Color.BLUE, 25, 150, 175);
+        }
+        if (headObj.getState() == 3) {
+            gImg.setColor(Color.GRAY);
+            gImg.fillRect(140, 220, 430, 120);
+            Img.WriteText(gImg, "GameOver ", Color.BLUE, 25, 150, 265);
+            Img.WriteText(gImg, "Press space to restart the game ", Color.BLUE, 25, 150, 300);
         }
 
         g.drawImage(offScreenImg, 0, 0, null);
+
+    }
+
+    public void message(Graphics g) {
+        g.setColor(Color.GRAY);
+        g.fillRect(140, 140, 430, 60);
 
     }
 

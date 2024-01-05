@@ -31,10 +31,7 @@ public class GameObj {
         this.y = y;
         this.frame = frame;
     }
-    public GameObj (GameStart frame, int score){
-        this.frame = frame;
-        this.score = score;
-    }
+
     public void paintSelf(Graphics g) {
         g.drawImage(img, x, y, width, height, null);
 
