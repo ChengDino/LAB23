@@ -12,23 +12,22 @@ public class HeadObj extends GameObj {
         java.util.List<BodyObj> bodyList = this.frame.bodyList;
 
         for (int i = bodyList.size() - 1; i >= 1; i--) {
-            
+
             bodyList.get(i).setX(bodyList.get(i - 1).getX());
             bodyList.get(i).setY(bodyList.get(i - 1).getY());
-            
+
             // game over
             if (getX() == bodyList.get(i).getX() && getY() == bodyList.get(i).getY()) {
                 setState(3);
-                
-                // restart game  
-                setScore(0); // score 
-                for (i = bodyList.size() - 1; bodyList.size() != 2; i--){
-                    
+
+                // restart game
+                for (i = bodyList.size() - 1; bodyList.size() != 2; i--) {
+
                     bodyList.remove(i); // body
-                    
+
                 }
             }
-            
+
         }
 
         bodyList.get(0).setX(getX());

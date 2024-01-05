@@ -106,6 +106,7 @@ public class GameStart extends JFrame {
             gImg.fillRect(140, 220, 430, 120);
             Img.WriteText(gImg, "GameOver ", Color.BLUE, 25, 150, 265);
             Img.WriteText(gImg, "Press space to restart the game ", Color.BLUE, 25, 150, 300);
+            headObj.setScore(0); // refresh score
         }
 
         g.drawImage(offScreenImg, 0, 0, null);
