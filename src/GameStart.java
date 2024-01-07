@@ -71,9 +71,9 @@ public class GameStart extends JFrame {
         }
         Graphics gImg = offScreenImg.getGraphics();
 
-        gImg.setColor(Color.GRAY);
+        gImg.setColor(new Color(142, 243, 246));
         gImg.fillRect(0, 0, 800, 600); // fill the window (background)
-        gImg.setColor(Color.BLACK);
+        gImg.setColor(new Color(207, 249, 250));
         for (int i = 0; i <= 20; i++) {
             gImg.drawLine(0, i * 30, 600, i * 30);
             gImg.drawLine(i * 30, 0, i * 30, 600);
@@ -90,32 +90,25 @@ public class GameStart extends JFrame {
         foodObj.paintSelf(gImg);
 
         // draw Score
-        Img.WriteText(gImg, String.valueOf(headObj.getScore()), Color.RED, 50, 650, 300);
-        Img.WriteText(gImg, "SCORE", Color.RED, 25, 650, 250);
+        Img.WriteText(gImg, String.valueOf(headObj.getScore()), Color.black, 50, 650, 300);
+        Img.WriteText(gImg, "SCORE", Color.black, 25, 650, 250);
 
         if (headObj.getState() == 0) {
-            message(gImg);
-            Img.WriteText(gImg, "Press space to start the game ", Color.BLUE, 25, 150, 175);
+
+            Img.WriteText(gImg, "Press space to start the game ", Color.blue, 25, 150, 175);
         }
         if (headObj.getState() == 2) {
-            message(gImg);
-            Img.WriteText(gImg, "Press space to continue the game ", Color.BLUE, 25, 150, 175);
+
+            Img.WriteText(gImg, "Press space to continue the game ", Color.blue, 25, 150, 175);
         }
         if (headObj.getState() == 3) {
-            gImg.setColor(Color.GRAY);
-            gImg.fillRect(140, 220, 430, 120);
-            Img.WriteText(gImg, "GameOver ", Color.BLUE, 25, 150, 265);
-            Img.WriteText(gImg, "Press space to restart the game ", Color.BLUE, 25, 150, 300);
+
+            Img.WriteText(gImg, "GameOver ", Color.red, 35, 150, 245);
+            Img.WriteText(gImg, "Press space to restart the game ", Color.blue, 25, 150, 300);
             headObj.setScore(0); // refresh score
         }
 
         g.drawImage(offScreenImg, 0, 0, null);
-
-    }
-
-    public void message(Graphics g) {
-        g.setColor(Color.GRAY);
-        g.fillRect(140, 140, 430, 60);
 
     }
 
