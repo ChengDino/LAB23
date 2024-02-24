@@ -1,0 +1,103 @@
+@startuml
+
+class GameStart {
+    - offScreenImg: Image
+    - headObj: HeadObj
+    - foodObj: FoodObj
+    - bodyList: List<BodyObj>
+
+    + Start(): void
+    + paint(g: Graphics): void
+    + HeadObj(img: Image, x: int, y: int , frame: GameStart)
+    + ControlDirection(e: KeyEvent): void
+    + getDirection(): String
+    + setDirection(String direction): void
+    + main(String[]): void
+}
+
+Class HeadObj {
+    -direction: String
+    +move (): void
+    +paintSelf (g : Graphics): void 
+    +HeadObj(img : Image,x : int, y : int, frame : GameStart)
+    +ControlDirection(e : KeyEvent): void
+    +getDirection (): String
+    +setDirection (direction : String ): void
+}
+
+Class FoodObj {
+    +r: Random
+    +getFood (): FoodObj
+    +FoodObj()
+    +paintSelf(g : Graphics): void
+    +FoodObj( img : Image, x : int, y : int, frame : GameStart)
+}
+Class BodyObj {
+    +BodyObj (img : Image, x : int, y : int, frame : GameStart)
+    +paintSelf (g : Graphics): void
+}
+
+Class Img {
+-head_down: Image
+-head_up: Image
+-head_left: Image
+-head_right: Image
+-body: Image
+-food: Image
++ <<static>> WriteText (g : Graphics, score : String, color : Color, size : int, x : int, y : int): void
++ <<static>> getHead_down(): Image
++ <<static>> setHead_down(head_down : Image): void
++ <<static>> Image getHead_up()
++ <<static>> setHead_up(head_up : Image): void
++ <<static>> getHead_left(): Image
++ <<static>> setHead_left(head_left : Image): void
++ <<static>> getHead_right(): Image
++ <<static>> setHead_right(head_right : Image): void
++ <<static>> getBody(): Image
++ <<static>> setBody(body : Image): void
++ <<static>> getFood(): Image
++ <<static>> setFood(food : Image): void
+}
+
+
+GameStart --|> JFrame
+GameStart "1" *-- "*" BodyObj
+GameStart "1" *-- "1" HeadObj
+GameStart "1" o-- "1" FoodObj
+
+Class GameObj {
+    - img: Image
+    - x: int
+    - y: int
+    -width: int
+    -height: int
+    +frame: GameStart
+    -score: int
+    -state: int 
+    +GameObj (img : Image, x : int, y : int, width : int, height : int, frame : GameStart)
+    +GameObj (img : Image, x : int, y : int, frame : GameStart)
+    +paintSelf (g : graphics): void
+    +GameObj ()
+    +getState (): int
+    +setState (state : int): void
+    +getScore (): int
+    +setScore (score : int): void
+    +getImg (): Image
+    +setImg (img : Image): void
+    +getX (): int
+    +setX (x : int): void
+    +getY (): int
+    +setY (y : int): void
+    +getWidth (): int
+    +setWidth (width  : int): void
+    +getHeight (): int
+    +setHeight (height : int): void
+}
+
+FoodObj --|> GameObj
+BodyObj --|> GameObj
+HeadObj --|> GameObj
+
+
+@enduml
+
