@@ -60,10 +60,7 @@ Class Img {
 }
 
 
-GameStart --|> JFrame
-GameStart "1" *-- "*" BodyObj
-GameStart "1" *-- "1" HeadObj
-GameStart "1" o-- "1" FoodObj
+
 
 Class GameObj {
     - img: Image
@@ -93,6 +90,14 @@ Class GameObj {
     +getHeight (): int
     +setHeight (height : int): void
 }
+
+GameStart --|> JFrame
+GameStart "1" *-- "*" BodyObj
+GameStart "1" *-- "1" HeadObj
+GameStart "1" o-- "1" FoodObj
+GameStart ..> Img
+FoodObj ..> Img
+HeadObj ..> Img
 
 FoodObj --|> GameObj
 BodyObj --|> GameObj
