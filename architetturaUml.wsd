@@ -1,40 +1,59 @@
 @startuml
 
+interface GameStart {
 
+    + paint(): void
+    + main(String[]): void
+}
 
-interface BodyObj {
-	rappresenta un segmento del corpo del serpente
+interface HeadObj {
+    +move (): void
+   
 
 }
 
 interface FoodObj {
-    	questa classe gestisce la generazione di cibo con posizioni casuali all'interno della griglia di gioco
+    +getFood (): FoodObj
+
+}
+interface BodyObj {
 
 }
 
-interface GameObj {
-    come la capacità di disegnarsi sulla finestra di gioco 
-	la gestione degli attributi dell'oggetto
-}
-	
-interface GameStart {
-    	
-        questa classe si occupa di inizializzare e gestire l'interfaccia grafica del gioco
+class GameObj{
+- Image img;
+- int x;
+- int y;
+- width: int
+- height: int 
++ frame: GameStart
+- score: int 
 
-}
 
-interface HeadObj {
-    	
-    inclusi il movimento
-	il rilevamento delle collisioni
-	il raccoglimento del cibo
 }
 
-interface Img {
-    	
-    gestisce le immagini utilizzate
-	fornisce un metodo per disegnare il punteggio
+class Img{
+	-<static> head_down: Image
+	-<static> head_up: Image
+	-<static> head_left: Image
+	-<static> head_right: Image
+	-<static> body: Image
+	-<static> food: Image
+	+<static> WriteText(): void
 }
 
-
+GameStart "1" --* "n" BodyObj
+GameStart "1" --* "1" HeadObj
+GameStart "1" --o "1" FoodObj
+GameStart  --|> Jframe
+BodyObj --> Img
+HeadObj --> Img
+FoodObj --> Img
+GameStart --> Img
+FoodObj --|> GameObj
+HeadObj -|> GameObj
+BodyObj --|> GameObj
+HeadObj -- FoodObj
+HeadObj -- BodyObj
 @enduml
+

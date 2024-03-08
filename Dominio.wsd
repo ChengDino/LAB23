@@ -1,0 +1,64 @@
+@startuml
+
+interface Snek {
+
+    + paint(): void
+    + main(String[]): void
+}
+
+interface HeadObj {
+    +move (): void
+   
+
+}
+
+interface FoodObj {
+    +getFood (): FoodObj
+
+}
+interface BodyObj {
+
+}
+
+
+
+
+Snek "1" --* "n" BodyObj
+Snek "1" --* "1" HeadObj
+Snek "1" --o "1" FoodObj
+Snek  --|> Jframe
+@enduml
+
+@startuml
+
+interface Snek {
+
+    + paint(): void
+    + main(String[]): void
+}
+
+interface HeadObj {
+    +move (): void
+   
+
+}
+
+interface FoodObj {
+    +getFood (): FoodObj
+
+}
+interface BodyObj {
+
+}
+
+
+
+
+Snek "1" --* "n" BodyObj
+Snek "1" --* "1" HeadObj
+Snek "1" --o "1" FoodObj
+Snek  --|> Jframe
+@enduml
+
+GameStart ..> Img
+HeadObj ..> Img
