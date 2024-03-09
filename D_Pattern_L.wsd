@@ -1,0 +1,35 @@
+@startuml
+
+interface HeadObj {
+    +move (): void
+   
+
+}
+
+interface FoodObj {
+    +getFood (): FoodObj
+
+}
+
+interface BodyObj {
+
+}
+
+abstract Gameobj {
+    -x: int
+    -y: int
+    -img: Image
+    -width: int
+    -height: int
+
+    -score: int
+    -state: int
+}
+
+Gameobj --|> BodyObj
+Gameobj --|> HeadObj
+Gameobj --|> FoodObj
+
+@enduml
+
+metodo pattern template
