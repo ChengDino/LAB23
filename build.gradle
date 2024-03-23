@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+ 
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'GameStart'
+    }
+
+}
+
+task run(type: JavaExec, dependsOn: 'classes') {
+    main = 'GameStart'
+    classpath = sourceSets.main.runtimeClasspath
+}
