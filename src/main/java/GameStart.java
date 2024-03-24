@@ -1,4 +1,6 @@
+
 import javax.swing.JFrame;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,7 +12,6 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
 
 public class GameStart extends JFrame {
 
@@ -31,58 +32,53 @@ public class GameStart extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        
- 
-
         bodyList.add(new BodyObj(Img.getBody(), 60, 540, this));
         bodyList.add(new BodyObj(Img.getBody(), 30, 540, this));
 
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File("src\\sound\\music.wav")));
 
-try {
-        Clip clip = AudioSystem.getClip();   
-        clip.open(AudioSystem.getAudioInputStream(new File("src\\sound\\music.wav")));
-            
-        this.addKeyListener(new KeyAdapter() {
+            this.addKeyListener(new KeyAdapter() {
 
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    // 0.not started // 1.started //2.pause //3.gameover
-                    if(headObj.getState()==0||headObj.getState()==2||headObj.getState()==3){
-                        headObj.setState(1);
-                        clip.setMicrosecondPosition(clip.getMicrosecondPosition());
-                        clip.start();
-                        clip.loop(Clip.LOOP_CONTINUOUSLY);
-                    }else if (headObj.getState()==1){
-                        headObj.setState(2);
-                        repaint();
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                        // 0.not started // 1.started //2.pause //3.gameover
+                        if (headObj.getState() == 0 || headObj.getState() == 2 || headObj.getState() == 3) {
+                            headObj.setState(1);
+                            clip.setMicrosecondPosition(clip.getMicrosecondPosition());
+                            clip.start();
+                            clip.loop(Clip.LOOP_CONTINUOUSLY);
+                        } else if (headObj.getState() == 1) {
+                            headObj.setState(2);
+                            repaint();
+                        }
+
                     }
-                
+
                 }
 
-            }
-    
-        });
+            });
 
             while (true) {
 
-            if (headObj.getState() == 1) {
-                
-                repaint();
-            }
-            else {
-                clip.stop();
-            }
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                if (headObj.getState() == 1) {
 
-          }
+                    repaint();
+                } else {
+                    clip.stop();
+                }
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
 
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -90,7 +86,7 @@ try {
     // I rewrite the graphics method
     @Override
     public void paint(Graphics g) {
-        
+
         if (offScreenImg == null) {
             offScreenImg = this.createImage(800, 600);
         }
@@ -122,18 +118,18 @@ try {
             Img.WriteText(gImg, "Press space to start the game ", Color.blue, 25, 150, 175);
         }
         if (headObj.getState() == 2) {
-            
+
             Img.WriteText(gImg, "Press space to continue the game ", Color.blue, 25, 150, 175);
-            
+
         }
         if (headObj.getState() == 3) {
 
             Img.WriteText(gImg, "GameOver ", Color.red, 35, 150, 245);
             Img.WriteText(gImg, "Press space to restart the game ", Color.blue, 25, 150, 300);
             headObj.setScore(0); // refresh score
-           
+
         }
-   
+
         g.drawImage(offScreenImg, 0, 0, null);
 
     }
@@ -142,7 +138,7 @@ try {
 
         GameStart startgame = new GameStart();
         startgame.Start();
-    
+
     }
 
 }

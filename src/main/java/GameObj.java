@@ -1,7 +1,8 @@
+
 import java.awt.Graphics;
 import java.awt.Image;
 
-public abstract class  GameObj {
+public abstract class GameObj {
     private Image img;
     // positions
     private int x;

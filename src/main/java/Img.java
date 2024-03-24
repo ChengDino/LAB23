@@ -1,9 +1,9 @@
+
 import java.awt.*;
 import java.awt.Font;
 import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
 
 public class Img {
 
@@ -28,20 +28,15 @@ public class Img {
 
         }
 
-
-
-
-
-                public static void playSound(String filePath) {
-                    try {
+        public static void playSound(String filePath) {
+                try {
                         Clip clip = AudioSystem.getClip();
                         clip.open(AudioSystem.getAudioInputStream(new File(filePath)));
                         clip.start();
-                    } catch (Exception e) {
+                } catch (Exception e) {
                         e.printStackTrace();
-                    }
                 }
-
+        }
 
         public static Image getHead_down() {
                 return head_down;

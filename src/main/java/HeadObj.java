@@ -1,3 +1,4 @@
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -64,7 +65,7 @@ public class HeadObj extends GameObj {
         FoodObj food = this.frame.foodObj;
         if (food.getX() == getX() && food.getY() == getY()) {
             Img.playSound("src\\sound\\eat.wav");
-            
+
             this.frame.foodObj = food.getFood();
             newX = lastBody.getX();
             newY = lastBody.getY();

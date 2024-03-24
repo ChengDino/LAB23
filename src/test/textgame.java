@@ -1,6 +1,10 @@
+package test;
 
 import java.awt.AWTException;
 import java.awt.event.KeyEvent;
+
+import main.java.GameStart;
+import main.java.HeadObj;
 
 public class textgame {
 
