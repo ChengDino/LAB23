@@ -5,25 +5,30 @@ repositories {
 }
 
 dependencies {
- 
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.hamcrest:hamcrest-core:1.3'
 }
-
 sourceSets {
     main {
         java {
             srcDirs = ['src/main/java']
         }
     }
+      test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+        }
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'GameStart'
+        attributes 'Main-Class': 'com.example.GameStart' 
     }
 
 }
 
 task run(type: JavaExec, dependsOn: 'classes') {
-    main = 'GameStart'
+    main = 'com.example.GameStart' 
     classpath = sourceSets.main.runtimeClasspath
 }

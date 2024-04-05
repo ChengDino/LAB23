@@ -1,3 +1,4 @@
+package com.example;
 
 import java.awt.*;
 import java.awt.Font;
