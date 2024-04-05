@@ -1,0 +1,34 @@
+snake è un classico gioco dove il giocatore deve controllare un serpente che si muove all'interno di una griglia facendo più punti possibili.
+
+REQUISITI FUNZIONALI
+
+
+Movimento del serpente: 
+Il serpente deve essere in grado di muoversi su una griglia in direzioni specifiche (su, giù, sinistra, destra) controllate dall'utente.
+
+Crescita del serpente: 
+Quando il serpente mangia un pezzo di cibo, la sua lunghezza aumenta di uno.
+
+Generazione casuale del cibo: 
+Il cibo deve apparire casualmente sulla griglia dopo che è stato mangiato dal serpente.
+
+Collisione con il corpo del serpente:
+Il gioco deve terminare se la testa del serpente entra in contatto con il proprio corpo.
+
+Punteggio:
+Il punteggio deve aumentare ogni volta che il serpente mangia un pezzo di cibo.
+
+Schermata di gioco over:
+Quando il gioco termina, deve essere visualizzata una schermata che offre la possibilità di giocare di nuovo.
+
+Interfaccia grafica utente (GUI):
+Il gioco deve essere presentato in modo visuale attraverso una GUI che mostra la griglia di gioco e il serpente in movimento.
+
+Pausa e Riprendi: 
+è possibile durante la partita con un tasto mettere in pausa il gioco e con lo stesso riprendere la partita
+
+
+REQUISITI NON FUNZIONALI
+
+
+Usabilità: Deve avere comandi chiari, intuibili e accessibili per il giocatore.

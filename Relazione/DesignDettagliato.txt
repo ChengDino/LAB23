@@ -1,0 +1,30 @@
+il problema è che ogni parte del serpente ha bisogno dei parametri (grandezza IMG, posizione IMG, Img) quindi all'interno di ogni classe vi erano scritte le medesime cose,
+creando cosi un codice rindondante
+
+la soluzione è stata quella di usare un pattern template creando una classe astratta "GameObj" dove ho esteso i parametri alle altre classi in questo modo il codice è riusabile.
+
+
+GAME OBJ
+BODY
+FOOD
+
+
+Il "Pattern Template Method" è un design pattern comportamentale che definisce lo scheletro di un algoritmo in una classe base, delegando alcune delle fasi specifiche dell'algoritmo alle sottoclassi. Questo pattern è utile quando si vuole definire l'ordine delle operazioni di un algoritmo, ma si desidera lasciare ai sottoclassi la possibilità di implementare alcune parti dell'algoritmo in modo specifico.
+
+Ecco una spiegazione di come funziona il Pattern Template Method:
+
+1. **Classe astratta base**: Definisce uno o più metodi che rappresentano lo scheletro dell'algoritmo. Questi metodi possono essere implementati all'interno della classe base e vengono spesso chiamati "metodi template". Questi metodi possono anche essere dichiarati come "final" per impedire alle sottoclassi di sovrascriverli.
+
+2. **Metodi astratti**: Definiscono metodi che devono essere implementati dalle sottoclassi per fornire l'implementazione specifica delle parti variabili dell'algoritmo.
+
+3. **Chiamate ai metodi template**: All'interno dei metodi template della classe base, vengono effettuate chiamate ai metodi astratti per eseguire le operazioni specifiche dell'algoritmo. Queste chiamate rappresentano i punti nel flusso dell'algoritmo in cui le sottoclassi possono intervenire per personalizzare il comportamento.
+
+4. **Sottoclassi concrete**: Estendono la classe base astratta e forniscono l'implementazione concreta dei metodi astratti. Queste sottoclassi possono personalizzare o estendere le parti dell'algoritmo specifiche per il loro caso d'uso.
+
+5. **Utilizzo del pattern**: Le istanze delle sottoclassi possono essere utilizzate nel contesto dell'applicazione, dove il metodo template viene chiamato per eseguire l'algoritmo definito. Le sottoclassi forniscono l'implementazione specifica necessaria per completare l'esecuzione dell'algoritmo.
+
+Questo pattern è particolarmente utile quando si ha un'algoritmo che segue uno schema comune, ma con alcune parti che possono variare a seconda del contesto. L'uso del Pattern Template Method aiuta a promuovere la riutilizzabilità del codice, a mantenere un alto livello di coesione e a consentire una facile estensione dell'algoritmo in futuro.
+
+
+
+
