@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestSnake" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-06T13:15:29" hostname="LISANDRO" time="0.111">
+  <properties/>
+  <testcase name="testFoodCreationWithinRange" classname="com.example.TestSnake" time="0.111"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
