@@ -1,0 +1,30 @@
+il problema è che ogni parte del serpente ha bisogno dei parametri (grandezza IMG, posizione IMG, Img) quindi all'interno di ogni classe vi erano scritte le medesime cose,
+creando cosi un codice rindondante
+
+la soluzione è stata quella di usare un pattern template creando una classe astratta "GameObj" dove ho esteso i parametri alle altre classi in questo modo il codice è riusabile.
+
+
+Col "Pattern Template Method" ho definito lo scheletro di un algoritmo dentro a GameObj, 
+delegando alcune delle fasi specifiche dell'algoritmo alle sottoclassi concrete:
+- BodyObj;
+- HeadObj;
+- FoodObj.
+
+Queste sono sottoclassi concrete, cioè estendono la classe base astratta 
+e forniscono l'implementazione concreta dei metodi astratti di GameObj.
+
+All'interno dei metodi template della classe GambeObj(classe base),
+vengono effettuate chiamate ai metodi astratti che rappresentano i punti 
+nel flusso dell'algoritmo in cui le sottoclassi possono intervenire per personalizzare 
+il comportamento.
+
+Le sottoclassi forniscono l'implementazione specifica necessaria per completare 
+l'esecuzione dell'algoritmo
+
+Nel caso di BodyObj si andrà a disegnare il corpo del serpente;
+Nel caso di HeadObj si andrà a definire la lunghezza variabile del serpente e definisce il comportamento alraggiungimento della casella dove è posizionato il cibo;
+Nel caso di FoodObj si andrà a posizionare in un punto casuale della griglia il cibo.
+
+
+
+
