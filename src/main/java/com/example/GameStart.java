@@ -32,7 +32,7 @@ public class GameStart extends JFrame {
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
+        this.setResizable(false);
         bodyList.add(new BodyObj(Img.getBody(), 60, 540, this));
         bodyList.add(new BodyObj(Img.getBody(), 30, 540, this));
 
