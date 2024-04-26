@@ -12,10 +12,11 @@ public abstract class GameObj {
     private int width = 30;
     private int height = 30;
     GameStart frame;
+    // data game
     private int score = 0;
     private int state = 0;
 
-    // this is a costructor of class GameObj with parameters
+    // costructor GameObj (all parameters)
     public GameObj(Image img, int x, int y, int width, int height, GameStart frame) {
 
         this.img = img;
@@ -27,6 +28,7 @@ public abstract class GameObj {
 
     }
 
+    // costructor GameObj (without size)
     public GameObj(Image img, int x, int y, GameStart frame) {
         this.img = img;
         this.x = x;
@@ -39,7 +41,7 @@ public abstract class GameObj {
 
     }
 
-    // this is a costructor of class GameObj without parameters
+    // costructor GameObj (without parameters)
     public GameObj() {
 
     }

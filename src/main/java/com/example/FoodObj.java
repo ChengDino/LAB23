@@ -8,7 +8,7 @@ public class FoodObj extends GameObj {
 
     Random r = new Random();
 
-    // (random) position food
+    // (random) position food: Range (60 - 570)
     public FoodObj getFood() {
         return new FoodObj(Img.getFood(), (r.nextInt(18) + 2) * 30, (r.nextInt(18) + 2) * 30, this.frame);
     }

@@ -6,13 +6,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class HeadObj extends GameObj {
-    // Direction up,down,rihgt,left
+    // Direction up, down, rihgt, left
     private String direction = "right";
 
     public void move() {
 
         java.util.List<BodyObj> bodyList = this.frame.bodyList;
-
+        
+        // Movement snake
         for (int i = bodyList.size() - 1; i >= 1; i--) {
 
             bodyList.get(i).setX(bodyList.get(i - 1).getX());
@@ -36,6 +37,7 @@ public class HeadObj extends GameObj {
         bodyList.get(0).setX(getX());
         bodyList.get(0).setY(getY());
 
+        // Snake changes direction
         switch (direction) {
             case "up":
                 setY(getY() - 30);
@@ -64,10 +66,12 @@ public class HeadObj extends GameObj {
         BodyObj lastBody = this.frame.bodyList.get(this.frame.bodyList.size() - 1);
 
         FoodObj food = this.frame.foodObj;
+        // sound when food and head collide 
         if (food.getX() == getX() && food.getY() == getY()) {
             Img.playSound("src\\sound\\eat.wav");
-
+            
             this.frame.foodObj = food.getFood();
+            // save position body
             newX = lastBody.getX();
             newY = lastBody.getY();
             setScore(getScore() + 1); // Increase point score
@@ -78,6 +82,7 @@ public class HeadObj extends GameObj {
             this.frame.bodyList.add(new BodyObj(Img.getBody(), newX, newY, this.frame));
         }
 
+        // Snake and Wall collides and turns around
         if (getX() >= 600) {
 
             setX(0);

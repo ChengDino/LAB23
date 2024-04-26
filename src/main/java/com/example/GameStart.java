@@ -26,9 +26,9 @@ public class GameStart extends JFrame {
     public List<BodyObj> bodyList = new ArrayList<>();
 
     public void Start() {
-
-        this.setSize(800, 600); // I select window size
-        this.setLocationRelativeTo(null); // position of the window on the screen
+        // management frame
+        this.setSize(800, 600); // window size
+        this.setLocationRelativeTo(null); // position window on the screen
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -37,6 +37,7 @@ public class GameStart extends JFrame {
         bodyList.add(new BodyObj(Img.getBody(), 30, 540, this));
 
         try {
+            // sound
             Clip clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(new File("src\\sound\\music.wav")));
 
@@ -45,12 +46,14 @@ public class GameStart extends JFrame {
                 @Override
                 public void keyPressed(KeyEvent e) {
                     if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        // 0.not started // 1.started //2.pause //3.gameover
+                        // 0) not started || 1) started || 2) pause || 3) gameover
                         if (headObj.getState() == 0 || headObj.getState() == 2 || headObj.getState() == 3) {
                             headObj.setState(1);
                             clip.setMicrosecondPosition(clip.getMicrosecondPosition());
                             clip.start();
-                            clip.loop(Clip.LOOP_CONTINUOUSLY);
+                            clip.loop(Clip.LOOP_CONTINUOUSLY); // sound
+                        
+                        // pause game
                         } else if (headObj.getState() == 1) {
                             headObj.setState(2);
                             repaint();
@@ -67,11 +70,12 @@ public class GameStart extends JFrame {
                 if (headObj.getState() == 1) {
 
                     repaint();
+                    // stop music
                 } else {
                     clip.stop();
                 }
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(200); // speed move snake
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -84,7 +88,7 @@ public class GameStart extends JFrame {
 
     }
 
-    // I rewrite the graphics method
+    // rewrite the graphics method
     @Override
     public void paint(Graphics g) {
 
